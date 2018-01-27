@@ -75,7 +75,44 @@ public class BinarySearchTree {
 		bst.insert(70);
 		bst.insert(60);
 		bst.insert(80);
+		bst.insert(90);
 		
 		bst.inorder();
+		bst.maximumDepth();
+		bst.minimumDepth();
+	}
+
+
+	private void minimumDepth() {
+		// TODO Auto-generated method stub
+		int minDepth=minDepth(root);
+		System.out.println("minimum depth is :"+minDepth);
+		
+	}
+
+
+	private int minDepth(BinarySearchTreeNode root) {
+		// TODO Auto-generated method stub
+		if(root==null)
+			return 0;
+		return 1+Math.min(minDepth(root.left), minDepth(root.right));
+	}
+
+
+	private void maximumDepth() {
+		// TODO Auto-generated method stub
+		int maxDepth=maxDepth(root);
+		System.out.println("maximum depth is   :"+maxDepth);
+	}
+
+
+	private int maxDepth(BinarySearchTreeNode root) {
+		// TODO Auto-generated method stub
+		if(root==null)
+		{
+			return 0;
+		}
+		return 1+Math.max(maxDepth(root.left), maxDepth(root.right));
+		
 	}
 }
