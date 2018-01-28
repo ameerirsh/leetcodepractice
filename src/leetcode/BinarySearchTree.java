@@ -53,9 +53,10 @@ public class BinarySearchTree {
 			if(root!=null)
 			{
 				inorderRec(root.left);
-				System.out.println(root.key);
+				System.out.print(root.key+" ");
 				inorderRec(root.right);
 			}
+			//System.out.println();
 		}
 		
 	public static void main(String args[])
@@ -80,6 +81,34 @@ public class BinarySearchTree {
 		bst.inorder();
 		bst.maximumDepth();
 		bst.minimumDepth();
+		bst.printUpSideDown();
+		bst.inorder();
+	}
+
+
+	private void printUpSideDown() {
+		invertTree(root);
+		// TODO Auto-generated method stub
+		
+		
+		
+	}
+
+
+	private BinarySearchTreeNode invertTree(BinarySearchTreeNode root) {
+		
+		// TODO Auto-generated method stub
+		BinarySearchTreeNode temp;
+		if(root==null)
+			return root;
+		temp=root.left;
+		root.left=root.right;
+		root.right=temp;
+		invertTree(root.left);
+		invertTree(root.right);
+		return root;
+		
+		
 	}
 
 
